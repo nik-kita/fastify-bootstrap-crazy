@@ -3,6 +3,18 @@
         "es2021": true,
         "node": true
     },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    },
     "extends": [
         "airbnb-base"
     ],
@@ -14,6 +26,18 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "no-unused-vars": "off"
     }
 }
