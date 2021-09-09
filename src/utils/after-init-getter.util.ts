@@ -1,10 +1,10 @@
 import { FastifyInstance } from 'fastify';
 import { globalEmitter } from '../index';
-import { WaitInitType } from '../types/wait-init.type';
+import { InitType } from '../types/init-type';
 
-class SingletonAsyncGetter {
-  static async getInstance<T>(waitInitObject: WaitInitType<T>) {
-    const { target, isReady, emitterLabel } = waitInitObject;
+class AfterInitGetter {
+  static async getTarget<T>(initObj: InitType<T>) {
+    const { target, isReady, emitterLabel } = initObj;
 
     if (isReady) {
       return Promise.resolve(target!);
@@ -15,16 +15,16 @@ class SingletonAsyncGetter {
     });
   }
 
-  static instanceReady<T>(
-    waitInitObject: WaitInitType<T>,
+  static targetReady<T>(
+    initObj: InitType<T>,
     resolvedTarget: T,
     server?: FastifyInstance,
   ) {
-    const { emitterLabel } = waitInitObject;
+    const { emitterLabel } = initObj;
     // eslint-disable-next-line no-param-reassign
-    waitInitObject.target = resolvedTarget;
+    initObj.target = resolvedTarget;
     // eslint-disable-next-line no-param-reassign
-    waitInitObject.isReady = true;
+    initObj.isReady = true;
     globalEmitter.emit(emitterLabel);
 
     if (server) server.log.info(emitterLabel);
@@ -32,6 +32,6 @@ class SingletonAsyncGetter {
 }
 
 export const {
-  getInstance,
-  instanceReady,
-} = SingletonAsyncGetter;
+  getTarget,
+  targetReady,
+} = AfterInitGetter;

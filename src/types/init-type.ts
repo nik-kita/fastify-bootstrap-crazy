@@ -1,4 +1,4 @@
-export type WaitInitType<T> = {
+export type InitType<T> = {
   target: T | null,
   isReady: boolean,
   emitterLabel: string
