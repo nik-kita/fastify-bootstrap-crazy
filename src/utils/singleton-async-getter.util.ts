@@ -1,11 +1,10 @@
 import { globalEmitter } from '../index';
+import { WaitInitType } from '../types/wait-init.type';
 
 class SingletonAsyncGetter {
-  static async getInstance<T>(
-    isReady: boolean,
-    emitterLabel: string,
-    target: T | null,
-  ) {
+  static async getInstance<T>(waitInitObject: WaitInitType<T>) {
+    const { target, isReady, emitterLabel } = waitInitObject;
+
     if (isReady) {
       return Promise.resolve(target!);
     }
