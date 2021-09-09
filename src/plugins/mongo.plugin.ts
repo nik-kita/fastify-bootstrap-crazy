@@ -13,7 +13,7 @@ const dbWaitInitObj: WaitInitType<Db> = {
 };
 
 class MongoPlugin {
-  static async connectToMongo(
+  static async mongoPlugin(
     server: FastifyInstance,
     options: RegisterOptions,
   ) {
@@ -33,4 +33,4 @@ class MongoPlugin {
   }
 }
 
-export const { connectToMongo } = MongoPlugin;
+export const { mongoPlugin } = MongoPlugin;

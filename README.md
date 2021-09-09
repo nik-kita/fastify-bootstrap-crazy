@@ -10,3 +10,23 @@
 ---
 1. no save all things in fastify-instance
 2. no repeat call-back like register hell
+
+# convention's rules
+* naming plugins:
+    * wrapped plugin class has name started upperCase '+---Plugin'
+    * his main function the same but first lowerCase '----plugin'
+    * simple destructorizing export
+
+```
+class ExamplePlugin {
+  static async plugin(
+    server: FastifyInstanse,
+    options: RegisterOptions,
+  ) {
+    ...
+  }
+}
+
+export const { examplePlugin } = ExamplePlugin;
+
+```
