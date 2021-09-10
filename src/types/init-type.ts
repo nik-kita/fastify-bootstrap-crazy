@@ -1,5 +1,5 @@
-export type InitType<T> = {
-  target: T | null,
+export type InitType<T, U = null> = {
+  target: T | U,
   isReady: boolean,
   emitterLabel: string
 }

@@ -3,15 +3,15 @@ import { globalEmitter } from '../index';
 import { InitType } from '../types/init-type';
 
 class AfterInitGetter {
-  static async getTarget<T>(initObj: InitType<T>) {
+  static async getTarget<T, U = null>(initObj: InitType<T, U>) {
     const { target, isReady, emitterLabel } = initObj;
 
     if (isReady) {
-      return Promise.resolve(target!);
+      return Promise.resolve(target as T);
     }
 
     return new Promise<T>((resolve) => {
-      globalEmitter.on(emitterLabel, () => resolve(target!));
+      globalEmitter.on(emitterLabel, () => resolve(target as T));
     });
   }
 
