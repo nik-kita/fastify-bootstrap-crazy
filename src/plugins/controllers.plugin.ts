@@ -38,4 +38,5 @@ class ControllersPlugin {
 
 export const {
   controllersPlugin,
+  getControllersMap,
 } = ControllersPlugin;
