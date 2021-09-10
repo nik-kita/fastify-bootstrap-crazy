@@ -33,7 +33,7 @@ class AfterInitGetter {
   }
 
   static classInstancesReady<T extends ClassType<any>>(
-    initObj: InitType<T>,
+    initObj: InitType<T[]>,
     resolvedTarget: Map<string, InstanceType<T>>,
     server?: FastifyInstance,
   ) {
