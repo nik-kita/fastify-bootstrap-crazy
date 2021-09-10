@@ -5,7 +5,7 @@ import { getTarget, targetReady } from '../utils/after-init-getter.util';
 
 const MONGO_URI = process.env.MOGO_URI || 'mongodb://localhost:27017';
 const DB_NAME = process.env.DB_NAMW || 'mem';
-const dbInitObj: InitType<Db> = {
+const dbInitObj: InitType = {
   target: null,
   isReady: false,
   emitterLabel: 'connect to mongo',

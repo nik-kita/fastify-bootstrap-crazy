@@ -1,9 +1,14 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
+import { BaseRepository } from '../base/repository.base';
+import { UserRepository } from '../components/user/user.repository';
+import { ClassType } from '../types/class-type';
 import { InitType } from '../types/init-type';
 import { getDb } from './mongo.plugin';
 
-const reposInitObj: InitType<[]> = {
-  target: null,
+const reposInitObj: InitType<ClassType<BaseRepository>[]> = {
+  target: [
+    UserRepository,
+  ],
   isReady: false,
   emitterLabel: 'all repositories are ready',
 };
@@ -14,6 +19,8 @@ class ReposPlugin {
     options: RegisterOptions,
   ) {
     const db = await getDb();
+
+    reposInitObj.target.forEach((RepositoryClass) => new RepositoryClass(db));
   }
 }
 
