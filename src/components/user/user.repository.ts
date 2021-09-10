@@ -1,9 +1,12 @@
 import { Collection, Db } from 'mongodb';
-import { BaseRepository } from '../../base/repository.base';
 
-export class UserRepository extends BaseRepository {
-  constructor(db: Db) {
-    super(db, 'users');
+export class UserRepository {
+  protected collection: Collection;
+
+  constructor(
+    db: Db,
+  ) {
+    this.collection = db.collection('users');
   }
 
   test() {

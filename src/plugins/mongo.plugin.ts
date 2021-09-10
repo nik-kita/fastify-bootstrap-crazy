@@ -3,8 +3,8 @@ import { Db, MongoClient } from 'mongodb';
 import { InitType } from '../types/init-type';
 import { getTarget, targetReady } from '../utils/after-init-getter.util';
 
-const MONGO_URI = process.env.MOGO_URI || 'mongodb://localhost:27017';
-const DB_NAME = process.env.DB_NAMW || 'mem';
+const MONGO_URI = process.env.MOGO_URI || 'mongodb+srv://tester:Password1!@test-preview.3xrjv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const DB_NAME = process.env.DB_NAMW || 'test-preview';
 const dbInitObj: InitType = {
   target: null,
   isReady: false,

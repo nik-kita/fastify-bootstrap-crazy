@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'fasty-in-google-cloud',
+    name: 'fastify-own-bootstrap-system',
     script: './dist/index.js',
     exec_mode: 'cluster',
     instances: 'max',
