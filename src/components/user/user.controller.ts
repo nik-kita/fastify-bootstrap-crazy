@@ -8,7 +8,9 @@ export class UserController {
     this.service = service;
   }
 
-  test(request: FastifyRequest, reply: FastifyReply) {
-    return this.service.test();
+  test = async (request: FastifyRequest, reply: FastifyReply) => {
+    const result = await this.service.test();
+
+    reply.send(result);
   }
 }
