@@ -1,5 +1,6 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
 import { BaseRepository } from '../base/repository.base';
+import { REPOSITORIES } from '../components/components.map';
 import { UserRepository } from '../components/user/user.repository';
 import { ClassType } from '../types/class-type';
 import { InitType } from '../types/init-type';
@@ -7,9 +8,7 @@ import { classInstancesReady, getTarget } from '../utils/after-init-getter.util'
 import { getDb } from './mongo.plugin';
 
 const reposInitObj: InitType<ClassType<BaseRepository>[]> = {
-  target: [
-    UserRepository,
-  ],
+  target: REPOSITORIES,
   isReady: false,
   emitterLabel: 'all repositories are ready',
 };
@@ -21,14 +20,17 @@ class ReposPlugin {
   ) {
     const db = await getDb();
     const reposMap = new Map(
-      reposInitObj.target.map((RepositoryClass) => [RepositoryClass.name, new RepositoryClass(db)]),
+      REPOSITORIES.map((RepositoryClass) => [RepositoryClass.name, new RepositoryClass(db)]),
     );
 
     classInstancesReady(reposInitObj, reposMap, server);
   }
 
   static async getReposMap() {
-    const result = await getTarget(reposInitObj);
+    const result = await getTarget<
+      Map<string, BaseRepository>,
+      ClassType<BaseRepository>[]
+    >(reposInitObj);
 
     return result;
   }
