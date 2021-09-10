@@ -1,6 +1,5 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
 import { Db, MongoClient } from 'mongodb';
-import { globalEmitter } from '..';
 import { InitType } from '../types/init-type';
 import { getTarget, targetReady } from '../utils/after-init-getter.util';
 
