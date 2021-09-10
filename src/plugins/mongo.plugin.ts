@@ -26,9 +26,7 @@ class MongoPlugin {
   }
 
   static async getDb() {
-    const result = await getTarget<Db>(dbInitObj);
-
-    return result;
+    return getTarget<Db>(dbInitObj);
   }
 }
 

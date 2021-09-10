@@ -18,9 +18,9 @@ class ServicesPlugin {
   ) {
     const reposMap = await getReposMap();
     const servicesMap = new Map(
-      COMPONENTS.map(({ service: ClassService, repository }) => [
-        ClassService.name,
-        new ClassService(reposMap.get(repository.name)),
+      COMPONENTS.map(({ service: ServiceClass, repository }) => [
+        ServiceClass.name,
+        new ServiceClass(reposMap.get(repository.name)),
       ]),
     );
 
@@ -37,4 +37,5 @@ class ServicesPlugin {
 
 export const {
   servicesPlugin,
+  getServicesMap,
 } = ServicesPlugin;

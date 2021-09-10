@@ -27,12 +27,10 @@ class ReposPlugin {
   }
 
   static async getReposMap() {
-    const result = await getTarget<
+    return getTarget<
       Map<string, BaseRepository>,
       ClassType<BaseRepository>[]
     >(reposInitObj);
-
-    return result;
   }
 }
 
