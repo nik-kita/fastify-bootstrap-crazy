@@ -1,6 +1,3 @@
-import { BaseController } from '../base/controller.base';
-import { BaseRepository } from '../base/repository.base';
-import { BaseService } from '../base/service.base';
 import { ClassType } from '../types/class-type';
 import { ComponentDeclarationType } from '../types/component-declaration.type';
 import { UserController } from './user/user.controller';
@@ -30,7 +27,7 @@ export const {
 
   return acc;
 }, {
-  REPOSITORIES: [] as ClassType<BaseRepository>[],
-  SERVICES: [] as ClassType<BaseService>[],
-  CONTROLLERS: [] as ClassType<BaseController>[],
+  REPOSITORIES: [] as ClassType<any>[],
+  SERVICES: [] as ClassType<any>[],
+  CONTROLLERS: [] as ClassType<any>[],
 });

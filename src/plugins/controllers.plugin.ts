@@ -1,12 +1,11 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
-import { BaseController } from '../base/controller.base';
 import { COMPONENTS, CONTROLLERS } from '../components/components.map';
 import { ClassType } from '../types/class-type';
 import { InitType } from '../types/init-type';
 import { classInstancesReady, getTarget } from '../utils/after-init-getter.util';
 import { getServicesMap } from './services.plugin';
 
-const controllersInitObj: InitType<ClassType<BaseController>[]> = {
+const controllersInitObj: InitType<ClassType<any>[]> = {
   target: CONTROLLERS,
   isReady: false,
   emitterLabel: 'all controllers are ready',
@@ -30,8 +29,8 @@ class ControllersPlugin {
 
   static async getControllersMap() {
     return getTarget<
-      Map<string, BaseController>,
-      ClassType<BaseController>[]
+      Map<string, any>,
+      ClassType<any>[]
     >(controllersInitObj);
   }
 }

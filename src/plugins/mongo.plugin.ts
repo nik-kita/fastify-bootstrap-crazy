@@ -1,5 +1,6 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
 import { Db, MongoClient } from 'mongodb';
+import { ExecutionTime } from '../decorators/execution-time.fn-dec';
 import { InitType } from '../types/init-type';
 import { getTarget, targetReady } from '../utils/after-init-getter.util';
 
