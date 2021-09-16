@@ -18,8 +18,8 @@ class ReposPlugin {
     options: RegisterOptions,
   ) {
     const db = await getDb();
-    const reposMap = new Map(
-      REPOSITORIES.map((RepositoryClass) => [RepositoryClass.name, new RepositoryClass(db)]),
+    const reposMap = new WeakMap(
+      REPOSITORIES.map((RepositoryClass) => [RepositoryClass, new RepositoryClass(db)]),
     );
 
     classInstancesReady(reposInitObj, reposMap, server);
@@ -27,7 +27,7 @@ class ReposPlugin {
 
   static async getReposMap() {
     return getTarget<
-      Map<string, any>,
+      WeakMap<ClassType<any>, any>,
       ClassType<any>[]
     >(reposInitObj);
   }

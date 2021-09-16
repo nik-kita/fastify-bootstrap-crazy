@@ -17,10 +17,10 @@ class ControllersPlugin {
     options: RegisterOptions,
   ) {
     const servicesMap = await getServicesMap();
-    const controllersMap = new Map(
+    const controllersMap = new WeakMap(
       COMPONENTS.map(({ controller: ControllerClass, service }) => [
-        ControllerClass.name,
-        new ControllerClass(servicesMap.get(service.name)),
+        ControllerClass,
+        new ControllerClass(servicesMap.get(service)),
       ]),
     );
 
@@ -29,7 +29,7 @@ class ControllersPlugin {
 
   static async getControllersMap() {
     return getTarget<
-      Map<string, any>,
+      WeakMap<ClassType<any>, any>,
       ClassType<any>[]
     >(controllersInitObj);
   }

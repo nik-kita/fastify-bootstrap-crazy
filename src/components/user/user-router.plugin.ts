@@ -8,7 +8,7 @@ class UserRouterPlugin {
     options: RegisterOptions,
   ) {
     const controllersMap = await getControllersMap();
-    const Controller = controllersMap.get(UserController.name) as UserController;
+    const Controller = controllersMap.get(UserController) as UserController;
 
     server.route({
       method: 'GET',

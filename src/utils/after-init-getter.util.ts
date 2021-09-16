@@ -34,7 +34,7 @@ class AfterInitGetter {
 
   static classInstancesReady<T extends ClassType<any>>(
     initObj: InitType<T[]>,
-    resolvedTarget: Map<string, InstanceType<T>>,
+    resolvedTarget: WeakMap<T, InstanceType<T>>,
     server?: FastifyInstance,
   ) {
     const { emitterLabel } = initObj;

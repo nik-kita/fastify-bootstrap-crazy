@@ -16,10 +16,10 @@ class ServicesPlugin {
     options: RegisterOptions,
   ) {
     const reposMap = await getReposMap();
-    const servicesMap = new Map(
+    const servicesMap = new WeakMap(
       COMPONENTS.map(({ service: ServiceClass, repository }) => [
-        ServiceClass.name,
-        new ServiceClass(reposMap.get(repository.name)),
+        ServiceClass,
+        new ServiceClass(reposMap.get(repository)),
       ]),
     );
 
@@ -28,7 +28,7 @@ class ServicesPlugin {
 
   static async getServicesMap() {
     return getTarget<
-      Map<string, any>,
+      WeakMap<ClassType<any>, any>,
       ClassType<any>[]
     >(servicesInitObj);
   }
