@@ -7,7 +7,8 @@ class UserRouterPlugin {
     server: FastifyInstance,
     options: RegisterOptions,
   ) {
-    const Controller = (await getControllersMap()).get(UserController.name) as UserController;
+    const controllersMap = await getControllersMap();
+    const Controller = controllersMap.get(UserController.name) as UserController;
 
     server.route({
       method: 'GET',
