@@ -1,10 +1,9 @@
+import { BaseService } from '../../base/service.base';
 import { UserRepository } from './user.repository';
 
-export class UserService {
-  private repository: UserRepository;
-
+export class UserService extends BaseService<UserRepository> {
   constructor(repository: UserRepository) {
-    this.repository = repository;
+    super(repository);
   }
 
   test() {

@@ -1,4 +1,5 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
+import { BaseService } from '../base/service.base';
 import { COMPONENTS, SERVICES } from '../components/components.map';
 import { ClassType } from '../types/class-type';
 import { InitType } from '../types/init-type';
@@ -28,8 +29,8 @@ class ServicesPlugin {
 
   static async getServicesMap() {
     return getTarget<
-      WeakMap<ClassType<any>, any>,
-      ClassType<any>[]
+      WeakMap<ClassType<BaseService<any>>, any>,
+      ClassType<BaseService<any>>[]
     >(servicesInitObj);
   }
 }

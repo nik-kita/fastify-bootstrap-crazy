@@ -1,8 +1,10 @@
+import { BaseRepository } from '../base/repository.base';
+import { BaseService } from '../base/service.base';
 import { ClassType } from './class-type';
 
 export type ComponentDeclarationType<
-  R = ClassType<any>,
-  S = ClassType<any>,
+  R = ClassType<BaseRepository>,
+  S = ClassType<BaseService<any>>,
   C = ClassType<any>
   > = {
     repository: R,
