@@ -1,6 +1,6 @@
 import { BaseRepository } from '../base/repository.base';
 import { BaseService } from '../base/service.base';
-import { ClassType } from '../types/class-type';
+import { ClassType } from '../types/class-type.type';
 import { ComponentDeclarationType } from '../types/component-declaration.type';
 import { UserController } from './user/user.controller';
 import { UserRepository } from './user/user.repository';

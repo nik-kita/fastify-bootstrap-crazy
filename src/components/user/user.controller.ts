@@ -10,6 +10,14 @@ export class UserController {
     this.service = service;
   }
 
+  async create(request: FastifyRequest, reply: FastifyReply) {
+    const { body: user } = request;
+
+    const createdUser = await this.service.create(user);
+
+    reply.send(createdUser);
+  }
+
   async test(request: FastifyRequest, reply: FastifyReply) {
     const result = await this.service.test();
 

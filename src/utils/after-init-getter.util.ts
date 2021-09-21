@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify';
 import { globalEmitter } from '../index';
-import { ClassType } from '../types/class-type';
-import { InitType } from '../types/init-type';
+import { ClassType } from '../types/class-type.type';
+import { InitType } from '../types/init-type.type';
 
 class AfterInitGetter {
   static async getTarget<T, U = null>(initObj: InitType<U>) {

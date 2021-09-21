@@ -6,6 +6,11 @@ export class UserService extends BaseService<UserRepository> {
     super(repository);
   }
 
+  // TODO rm any
+  async create(user: any) {
+    return this.repository.create(user);
+  }
+
   test() {
     return this.repository.test();
   }

@@ -1,7 +1,7 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
 import { COMPONENTS, CONTROLLERS } from '../components/components.map';
-import { ClassType } from '../types/class-type';
-import { InitType } from '../types/init-type';
+import { ClassType } from '../types/class-type.type';
+import { InitType } from '../types/init-type.type';
 import { classInstancesReady, getTarget } from '../utils/after-init-getter.util';
 import { getServicesMap } from './services.plugin';
 

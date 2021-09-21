@@ -1,7 +1,7 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
 import { Db, MongoClient } from 'mongodb';
 import { ExecutionTime } from '../decorators/execution-time.fn-dec';
-import { InitType } from '../types/init-type';
+import { InitType } from '../types/init-type.type';
 import { getTarget, targetReady } from '../utils/after-init-getter.util';
 
 const MONGO_URI = process.env.MOGO_URI || 'mongodb+srv://tester:Password1!@test-preview.3xrjv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';

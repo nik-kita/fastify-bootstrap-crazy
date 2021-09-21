@@ -6,4 +6,9 @@ export abstract class BaseRepository {
   constructor(db: Db, collectionName: string) {
     this.collection = db.collection(collectionName);
   }
+
+  // TODO rm any
+  create(data: any) {
+    return this.collection.insertOne(data);
+  }
 }

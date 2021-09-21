@@ -2,8 +2,8 @@ import { FastifyInstance, RegisterOptions } from 'fastify';
 import { BaseRepository } from '../base/repository.base';
 import { REPOSITORIES } from '../components/components.map';
 import { UserRepository } from '../components/user/user.repository';
-import { ClassType } from '../types/class-type';
-import { InitType } from '../types/init-type';
+import { ClassType } from '../types/class-type.type';
+import { InitType } from '../types/init-type.type';
 import { classInstancesReady, getTarget } from '../utils/after-init-getter.util';
 import { getDb } from './mongo.plugin';
 

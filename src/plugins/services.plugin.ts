@@ -1,8 +1,8 @@
 import { FastifyInstance, RegisterOptions } from 'fastify';
 import { BaseService } from '../base/service.base';
 import { COMPONENTS, SERVICES } from '../components/components.map';
-import { ClassType } from '../types/class-type';
-import { InitType } from '../types/init-type';
+import { ClassType } from '../types/class-type.type';
+import { InitType } from '../types/init-type.type';
 import { classInstancesReady, getTarget } from '../utils/after-init-getter.util';
 import { getReposMap } from './repos.plugin';
 
